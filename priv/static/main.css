@@ -1,0 +1,76 @@
+body {
+    background: #f0f0f0;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#menu-container {
+    float: left;
+    max-height 100%;
+    overflow: auto;
+    width: 15%;
+}
+
+#output-container {
+    float: left;
+    max-height 100%;
+    overflow: auto;
+    width: 85%;
+    display: inline;
+}
+
+#menu {
+    border-style: none;
+    padding: 16px 16px 16px 16px !important;
+}
+
+#menu li {
+    line-height: 130%;
+    list-style-type: none;
+}
+
+#menu li.current {
+    list-style-type: circle;
+    color: #aa0000;
+}
+
+#output {
+    padding: 16px 16px 16px 16px !important;
+}
+
+#output-body {
+    font-family: monospace;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+a {
+    color: #000000;
+}
+
+a.current {
+    color: #aa0000;
+}
+
+#command {
+    font-weight: bold;
+    font-family: monospace;
+    float: left;
+    /*padding-left: 12px;*/
+}
+
+#updated {
+    float: right;
+    position: relative;
+    font-size: 11px;
+    font-style: italic;
+    color: #808080;
+}
+
+#playpause {
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 12px;
+    cursor: pointer;
+}
