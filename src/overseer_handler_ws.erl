@@ -41,7 +41,8 @@ websocket_info({hello, Msg}, Req, State) ->
     {reply, {text, Msg}, Req, State};
 % Main streams loop
 websocket_info({timeout, _Ref, {Msg, Delay}}, Req, State) ->
-    Reply = list_to_binary(os:cmd(Msg)),
+    % Reply = list_to_binary(os:cmd(Msg)),
+    {done, _Status, Reply} = erlsh:run(Msg),
     Timer = erlang:start_timer(Delay * 1000, self(), {Msg, Delay}),
     overseer_cfg:set(<<"TIMER">>, Timer),
     {reply, {text, Reply}, Req, State};
