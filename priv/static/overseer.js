@@ -68,7 +68,7 @@ function onOpen(evt) {
 function onClose(evt) {
     $("title").html("[DOWN] " + window.hostname);
     if (!reconnect) {
-        reconnect = setInterval(connect(), 5000); // auto reconnect attempts every 5 seconds after fail
+        reconnect = setInterval(connect, 5000); // auto reconnect attempts every 5 seconds after fail
     }
 };
 
