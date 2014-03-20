@@ -2,7 +2,7 @@
 
 // Global variables
 var websocket;
-var reconnect;
+var reconnect = null;
 
 ///////////   Event handlers   ///////////
 $(document).ready(init);
@@ -61,12 +61,15 @@ function connect()
 // Websocket onOpen
 function onOpen(evt) {
     window.clearInterval(reconnect);
+    reconnect = null;
 };
 
 // Websocket onClose
 function onClose(evt) {
     $("title").html("[DOWN] " + window.hostname);
-    reconnect = setInterval(connect(), 5000); // auto reconnect attempts every 5 seconds after fail
+    if (!reconnect) {
+        reconnect = setInterval(connect, 5000); // auto reconnect attempts every 5 seconds after fail
+    }
 };
 
 // Receiving messages from websocket
